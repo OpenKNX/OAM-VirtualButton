@@ -1,5 +1,5 @@
 #include "OpenKNX.h"
-//#include "Logic.h"
+#include "Logic.h"
 #include "VirtualButtonModule.h"
 
 void setup()
