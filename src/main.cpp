@@ -4,9 +4,9 @@
 
 void setup()
 {
-    const uint8_t firmwareRevision = 0;
+    const uint8_t firmwareRevision = 1;
     openknx.init(firmwareRevision);
-    //openknx.addModule(1, new Logic());
+    openknx.addModule(1, new Logic());
     openknx.addModule(2, new VirtualButtonModule());
     openknx.setup();
 }
