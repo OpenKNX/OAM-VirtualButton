@@ -1,7 +1,13 @@
 #pragma once
 
-#define paramDelay(time) (uint32_t)((time & 0xC000) == 0xC000 ? (time & 0x3FFF) * 100 : (time & 0xC000) == 0x0000 ? (time & 0x3FFF) * 1000 : (time & 0xC000) == 0x4000 ? (time & 0x3FFF) * 60000 : (time & 0xC000) == 0x8000 ? ((time & 0x3FFF) > 1000 ? 3600000 : (time & 0x3FFF) * 3600000 ) : 0 )
 
+#define paramDelay(time) (uint32_t)( \
+            (time & 0xC000) == 0xC000 ? (time & 0x3FFF) * 100 : \
+            (time & 0xC000) == 0x0000 ? (time & 0x3FFF) * 1000 : \
+            (time & 0xC000) == 0x4000 ? (time & 0x3FFF) * 60000 : \
+            (time & 0xC000) == 0x8000 ? ((time & 0x3FFF) > 1000 ? 3600000 : \
+                                         (time & 0x3FFF) * 3600000 ) : 0 )
+                                             
 // Parameter with single occurrence
 
 
@@ -537,7 +543,7 @@
 #define BTN_KoBlockSize 12
 
 #define BTN_KoCalcNumber(index) (index + BTN_KoBlockOffset + _channelIndex * BTN_KoBlockSize)
-#define BTN_KoCalcIndex(number) (((number - BTN_KoBlockOffset) >= 0) ? (number - BTN_KoOffset) % BTN_KoBlockSize : -1)
+#define BTN_KoCalcIndex(number) ((number >= BTN_KoCalcNumber(0) && number < BTN_KoCalcNumber(BTN_KoBlockSize)) ? (number - BTN_KoOffset) % BTN_KoBlockSize : -1)
 
 #define BTN_KoChannelLock 0
 #define BTN_KoChannelInput1 1
@@ -2315,7 +2321,7 @@
 #define LOG_KoBlockSize 3
 
 #define LOG_KoCalcNumber(index) (index + LOG_KoBlockOffset + _channelIndex * LOG_KoBlockSize)
-#define LOG_KoCalcIndex(number) (((number - LOG_KoBlockOffset) >= 0) ? (number - LOG_KoOffset) % LOG_KoBlockSize : -1)
+#define LOG_KoCalcIndex(number) ((number >= LOG_KoCalcNumber(0) && number < LOG_KoCalcNumber(LOG_KoBlockSize)) ? (number - LOG_KoOffset) % LOG_KoBlockSize : -1)
 
 #define LOG_KoKOfE1 0
 #define LOG_KoKOfE2 1
@@ -2330,5 +2336,5 @@
 
 #define MAIN_OpenKnxId 0xA3
 #define MAIN_ApplicationNumber 2
-#define MAIN_ApplicationVersion 1
+#define MAIN_ApplicationVersion 2
 #define MAIN_OrderNumber "VBM"
