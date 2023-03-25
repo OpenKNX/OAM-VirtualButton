@@ -12,8 +12,8 @@
         <!-- Each increase of AppliationVersion FORCES the Enduser to update according firmware, too -->
         <!-- If you just want to have a BUGFIX-Update of the ETS-Appliation (without firmware), increase ApplicationVersion AND ApplicationRevision simultaneously -->
         <!-- To sync ETS-Application and firmware again, increase ApplicationVersion AND set ApplicationRevision to 0 -->
-        <op:version OpenKnxId="0xA3" ApplicationNumber="2" ApplicationVersion="2" ReplacesVersions="1" ApplicationRevision="0" />
-        <ApplicationProgram Id="%AID%" ProgramType="ApplicationProgram" MaskVersion="MV-07B0" Name="OpenKNX-VirtualButtonModul-Beta" LoadProcedureStyle="MergedProcedure" PeiType="0" DefaultLanguage="de" DynamicTableManagement="false" Linkable="true" MinEtsVersion="4.0" ApplicationNumber="0" ApplicationVersion="0" ReplacesVersions="0">
+        <op:version OpenKnxId="0xA3" ApplicationNumber="2" ApplicationVersion="3" ReplacesVersions="1 2" ApplicationRevision="0" />
+        <ApplicationProgram Id="%AID%" ProgramType="ApplicationProgram" MaskVersion="MV-07B0" Name="OpenKNX-VirtualButtonModul-Beta" LoadProcedureStyle="MergedProcedure" PeiType="0" DefaultLanguage="de" DynamicTableManagement="false" Linkable="true" MinEtsVersion="4.0" ContextHelpFile="%FILE-HELP-de%" IconFile="%FILE-ICONS%" ApplicationNumber="0" ApplicationVersion="0" ReplacesVersions="0">
           <Static>
             <Code>
               <RelativeSegment Id="%AID%_RS-04-00000" Name="Parameters" Offset="0" Size="%MemorySize%" LoadStateMachine="4" />
@@ -22,39 +22,39 @@
             <op:define prefix="LOG" header="VirtualButtonModuleKnxprod.h" NumChannels="100" KoOffset="100" ModuleType="1" />
             <ParameterTypes>
               <!-- generic parameter types from logicmodule -->
-              <op:include href="../../OFM-VirtualButton/src/VirtualButton.share.xml" xpath="//ParameterTypes/ParameterType" prefix="BTN" />
               <op:include href="VirtualButtonModule.parts.xml" xpath="//ParameterTypes/ParameterType" prefix="BTN" />
-              <op:include href="../../OAM-LogicModule/src/Logikmodul.share.xml" xpath="//ParameterTypes/ParameterType" prefix="LOG" />
+              <op:include href="../../OFM-VirtualButton/src/VirtualButton.share.xml" xpath="//ParameterTypes/ParameterType" prefix="BTN" />
+              <op:include href="../../OFM-LogicModule/src/Logikmodul.share.xml" xpath="//ParameterTypes/ParameterType" prefix="LOG" />
             </ParameterTypes>
             <Parameters>
               <!-- Standard parameter in any of our devices -->
               <op:include href="../../OFM-VirtualButton/src/VirtualButton.share.xml" xpath="//Parameters/Parameter|//Parameters/Union" type="parameter" prefix="BTN" />
               <op:include href="../../OFM-VirtualButton/src/VirtualButton.templ.xml" xpath="//Parameters/Parameter|//Parameters/Union" type="template" prefix="BTN" />
               <op:include href="VirtualButtonModule.parts.xml" xpath="//Parameters/Parameter|//Parameters/Union" type="template" prefix="BTN" />
-              <op:include href="../../OAM-LogicModule/src/Logikmodul.share.xml" xpath="//Parameters/Parameter|//Parameters/Union" type="parameter" prefix="LOG" />
-              <op:include href="../../OAM-LogicModule/src/Logikmodul.templ.xml" xpath="//Parameters/Parameter|//Parameters/Union" type="template" prefix="LOG" />
+              <op:include href="../../OFM-LogicModule/src/Logikmodul.share.xml" xpath="//Parameters/Parameter|//Parameters/Union" type="parameter" prefix="LOG" />
+              <op:include href="../../OFM-LogicModule/src/Logikmodul.templ.xml" xpath="//Parameters/Parameter|//Parameters/Union" type="template" prefix="LOG" />
             </Parameters>
             <ParameterRefs>
               <!-- General -->
               <op:include href="../../OFM-VirtualButton/src/VirtualButton.share.xml" xpath="//ParameterRefs/ParameterRef" prefix="BTN" />
               <op:include href="../../OFM-VirtualButton/src/VirtualButton.templ.xml" xpath="//ParameterRefs/ParameterRef" type="template" prefix="BTN" />
               <op:include href="VirtualButtonModule.parts.xml" xpath="//ParameterRefs/ParameterRef" prefix="BTN" />
-              <op:include href="../../OAM-LogicModule/src/Logikmodul.share.xml" xpath="//ParameterRefs/ParameterRef" prefix="LOG" />
-              <op:include href="../../OAM-LogicModule/src/Logikmodul.templ.xml" xpath="//ParameterRefs/ParameterRef" type="template" prefix="LOG" />
+              <op:include href="../../OFM-LogicModule/src/Logikmodul.share.xml" xpath="//ParameterRefs/ParameterRef" prefix="LOG" />
+              <op:include href="../../OFM-LogicModule/src/Logikmodul.templ.xml" xpath="//ParameterRefs/ParameterRef" type="template" prefix="LOG" />
             </ParameterRefs>
             <ComObjectTable>
               <op:include href="../../OFM-VirtualButton/src/VirtualButton.share.xml" xpath="//ComObjectTable/ComObject" prefix="BTN" />
               <op:include href="../../OFM-VirtualButton/src/VirtualButton.templ.xml" xpath="//ComObjectTable/ComObject" type="template" prefix="BTN" />
               <op:include href="VirtualButtonModule.parts.xml" xpath="//ComObjectTable/ComObject" prefix="BTN" />
-              <op:include href="../../OAM-LogicModule/src/Logikmodul.share.xml" xpath="//ComObjectTable/ComObject" prefix="LOG" />
-              <op:include href="../../OAM-LogicModule/src/Logikmodul.templ.xml" xpath="//ComObjectTable/ComObject" type="template" prefix="LOG" />
+              <op:include href="../../OFM-LogicModule/src/Logikmodul.share.xml" xpath="//ComObjectTable/ComObject" prefix="LOG" />
+              <op:include href="../../OFM-LogicModule/src/Logikmodul.templ.xml" xpath="//ComObjectTable/ComObject" type="template" prefix="LOG" />
             </ComObjectTable>
             <ComObjectRefs>
               <op:include href="../../OFM-VirtualButton/src/VirtualButton.share.xml" xpath="//ComObjectRefs/ComObjectRef" prefix="BTN" />
               <op:include href="../../OFM-VirtualButton/src/VirtualButton.templ.xml" xpath="//ComObjectRefs/ComObjectRef" type="template" prefix="BTN" />
               <op:include href="VirtualButtonModule.parts.xml" xpath="//ComObjectRefs/ComObjectRef" prefix="BTN" />
-              <op:include href="../../OAM-LogicModule/src/Logikmodul.share.xml" xpath="//ComObjectRefs/ComObjectRef" prefix="LOG" />
-              <op:include href="../../OAM-LogicModule/src/Logikmodul.templ.xml" xpath="//ComObjectRefs/ComObjectRef" type="template" prefix="LOG" />
+              <op:include href="../../OFM-LogicModule/src/Logikmodul.share.xml" xpath="//ComObjectRefs/ComObjectRef" prefix="LOG" />
+              <op:include href="../../OFM-LogicModule/src/Logikmodul.templ.xml" xpath="//ComObjectRefs/ComObjectRef" type="template" prefix="LOG" />
             </ComObjectRefs>
             <AddressTable MaxEntries="2047" />
             <AssociationTable MaxEntries="2047" />
@@ -90,9 +90,9 @@
                 <!-- Hack for hide Inputs -->
                 <op:include href="VirtualButtonModule.parts.xml" xpath="//Dynamic/ChannelIndependentBlock/ParameterBlock[@Name='HiddenOptions']/*" prefix="BTN" />
                 <!-- <op:include href="VirtualButton.parts.xml" xpath="//Dynamic/ChannelIndependentBlock/ParameterBlock[@Name='Init']/*" prefix="BTN" /> -->
-                <op:include href="../../OAM-LogicModule/src/Logikmodul.parts.xml" xpath="//Dynamic/ChannelIndependentBlock/ParameterBlock[@Name='General']/*" prefix="LOG" />
+                <op:include href="../../OFM-LogicModule/src/Logikmodul.parts.xml" xpath="//Dynamic/ChannelIndependentBlock/ParameterBlock[@Name='General']/*" prefix="LOG" />
                 <!-- <op:include href="VirtualButton.parts.xml" xpath="//Dynamic/ChannelIndependentBlock/ParameterBlock[@Name='Hardware']/*" prefix="BTN" /> -->
-                <op:include href="../../OAM-LogicModule/src/Logikmodul.parts.xml" xpath="//Dynamic/ChannelIndependentBlock/ParameterBlock[@Name='Diagnose']/*" prefix="LOG" />
+                <op:include href="../../OFM-LogicModule/src/Logikmodul.parts.xml" xpath="//Dynamic/ChannelIndependentBlock/ParameterBlock[@Name='Diagnose']/*" prefix="LOG" />
               </ParameterBlock>
             </ChannelIndependentBlock>
             <Channel Id="%AID%_CH-4" Name="BTNS" Number="4" Text="VirtualButton">
@@ -104,16 +104,21 @@
               <op:include href="VirtualButtonModule.parts.xml" xpath="//Dynamic/Channel/*" prefix="BTN" />
             </Channel>
             <Channel Name="Logikkanaele" Text="Logikkanäle" Number="5" Id="%AID%_CH-5">
-              <!-- compose logicmodule channel from BTNe static blocks... -->
-              <op:include href="../../OAM-LogicModule/src/Logikmodul.share.xml" xpath="//Dynamic/Channel/*" prefix="LOG" />
+              <!-- compose logicmodule channel from some static blocks... -->
+              <op:include href="../../OFM-LogicModule/src/Logikmodul.share.xml" xpath="//Dynamic/Channel/*" prefix="LOG" />
               <!-- followed by all logic channels -->
-              <op:include href="../../OAM-LogicModule/src/Logikmodul.templ.xml" xpath="//Dynamic/ChannelIndependentBlock/*" type="template" prefix="LOG" />
+              <op:include href="../../OFM-LogicModule/src/Logikmodul.templ.xml" xpath="//Dynamic/ChannelIndependentBlock/*" type="template" prefix="LOG" />
             </Channel>
           </Dynamic>
         </ApplicationProgram>
       </ApplicationPrograms>
+      <Baggages>
+        <op:include href="VirtualButtonModule.parts.xml" xpath="//Baggages/*" prefix="BTN" />
+        <op:include href="../../OGM-Common/src/Common.share.xml" xpath="//Baggages/*" prefix="LOG" />
+        <op:include href="../../OFM-VirtualButton/src/VirtualButton.share.xml" xpath="//Baggages/*" prefix="BTN" />
+      </Baggages>
       <Hardware>
-        <Hardware Id="%HardwareId%" Name="OpenKNX-VirtualButtonModul" SerialNumber="0xA466" VersionNumber="1" BusCurrent="10" HasIndividualAddress="true" HasApplicationProgram="true">
+        <Hardware Id="%HardwareId%" Name="OpenKNX-VirtualButtonModul" SerialNumber="0xA302" VersionNumber="1" BusCurrent="10" HasIndividualAddress="true" HasApplicationProgram="true">
           <Products>
             <Product Id="%ProductId%" Text="OpenKNX: VirtualButtonModul" OrderNumber="VBM" IsRailMounted="false" DefaultLanguage="de">
               <RegistrationInfo RegistrationStatus="Registered" />
