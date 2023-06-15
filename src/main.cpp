@@ -1,5 +1,5 @@
-#include "OpenKNX.h"
 #include "Logic.h"
+#include "OpenKNX.h"
 #include "VirtualButtonModule.h"
 
 void setup()
@@ -10,7 +10,6 @@ void setup()
     openknx.addModule(2, new VirtualButtonModule());
     openknx.setup();
 }
-
 void loop()
 {
     openknx.loop();

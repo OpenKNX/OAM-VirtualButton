@@ -18,8 +18,8 @@
             <Code>
               <RelativeSegment Id="%AID%_RS-04-00000" Name="Parameters" Offset="0" Size="%MemorySize%" LoadStateMachine="4" />
             </Code>
-            <op:define prefix="BTN" header="VirtualButtonModuleKnxprod.h" NumChannels="30" KoOffset="400" ModuleType="2" />
-            <op:define prefix="LOG" header="VirtualButtonModuleKnxprod.h" NumChannels="100" KoOffset="100" ModuleType="1" />
+            <op:define prefix="BTN" header="VirtualButtonModuleKnxprod.h" NumChannels="10" KoOffset="400" ModuleType="2" />
+            <op:define prefix="LOG" header="VirtualButtonModuleKnxprod.h" NumChannels="10" KoOffset="100" ModuleType="1" />
             <ParameterTypes>
               <!-- generic parameter types from logicmodule -->
               <op:include href="VirtualButtonModule.parts.xml" xpath="//ParameterTypes/ParameterType" prefix="BTN" />
